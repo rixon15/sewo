@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    app:
+        build: .
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/var/www/html
+        environment:
+            - APP_KEY=base64:Dm4ca0CuC3huW6g4KBCYwwg6dsffU/G8nzL93/CgedA=
+            #... other environment variables
