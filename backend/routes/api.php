@@ -8,7 +8,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/verify', [AuthController::class, 'verifyEmail']);
 Route::post('/password/reset/email', [AuthController::class, 'sendPasswordResetEmail']);
-Route::get('/password/reset', [AuthController::class, 'passwordReset']);
+Route::post('/password/reset', [AuthController::class, 'passwordReset']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);

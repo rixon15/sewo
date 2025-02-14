@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PasswordResetEmail;
+use App\Mail\VerifyEmail;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -63,16 +64,21 @@ class AuthController extends Controller
         if ($user) {
             $token = $user->createToken($user->name, ['Auth-Token'])->plainTextToken;
 
+            Mail::to($user->email)->send(new VerifyEmail($user->verification_token));
+
             return response()->json([
                 'message' => 'Registration Successful',
                 'toke_type' => 'Bearer',
                 'token' => $token
             ], 201);
+
         } else {
             return response()->json([
                 'message' => 'Something went wrong!'
             ], 500);
         }
+
+
     }
 
     public function logout(Request $request): JsonResponse
@@ -105,23 +111,39 @@ class AuthController extends Controller
         }
     }
 
-    public function verifyEmail($id): JsonResponse
+    public function verifyEmail(Request $request): JsonResponse
     {
-        $user = User::where('id', $id)->first();
 
-        if ($user) {
-            $user->email_verified_at = Carbon::now();
-            $user->save();
+        $token = $request->input('token');
 
+        if (!$token) {
             return response()->json([
-                'message' => 'Email Verified Successfully'
-            ], 201);
-
-        } else {
-            return response()->json([
-                'message' => 'User Not Found'
+                'message' => 'Verification token is missing!'
             ], 404);
         }
+
+        $user = User::where('users.verification_token', $token)->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Invalid verification token'
+            ], 404);
+        }
+
+        if ($user->email_verified_at) {
+            return response()->json([
+                'message' => 'Email already verified'
+            ]);
+        }
+
+        $user->email_verified_at = Carbon::now();
+        $user->verification_token = null;
+        $user->save();
+
+        return response()->json([
+            'message' => 'Email verified successfully'
+        ]);
+
     }
 
     /**
@@ -181,33 +203,36 @@ class AuthController extends Controller
         ]);
 
         $passwordResetToken = DB::table('password_reset_tokens')
-            ->where('token', Hash::make($request->token))
             ->where('email', $request->email)
             ->where('created_at', '>', Carbon::now()->subMinutes(10))
             ->first();
 
-        if (!$passwordResetToken) {
+        if ($passwordResetToken && Hash::check($request->token, $passwordResetToken->token)) {
+
+
+
+            $user = User::where('email', $request->email)->first();
+            if (!$user) {
+                return response()->json([
+                    'message' => 'User not found'
+                ], 404);
+            }
+
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            DB::table('password_reset_tokens')->where('email', $user->email)->delete();
+
             return response()->json([
-                'message' => 'Invalid or expired token'
-            ], 400);
+                'message' => 'Password reset successfully'
+            ]);
+
+
         }
-
-        $user = User::where('email', $request->email)->first();
-        if (!$user) {
-            return response()->json([
-                'message' => 'User not found'
-            ], 404);
-        }
-
-        $user->password = Hash::make($request->password);
-        $user->save();
-
-        DB::table('password_reset_tokens')->where('email', $user->email)->delete();
 
         return response()->json([
-            'message' => 'Password reset successfully'
-        ]);
-
+            'message' => 'Something went wrong on the server'
+        ], 500);
     }
 
 }

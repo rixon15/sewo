@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -13,7 +12,7 @@ class VerifyEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $verification_token
+    public string $verification_token;
 
     /**
      * Create a new message instance.
@@ -39,7 +38,10 @@ class VerifyEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.verify_email',
+            with: [
+                'verification_token' => $this->verification_token,
+            ]
         );
     }
 

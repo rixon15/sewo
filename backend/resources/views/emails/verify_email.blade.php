@@ -1,9 +1,13 @@
-<h1>Password Reset</h1>
+<h1>Email verification</h1>
 
-<p>You are receiving this email because you requested a password reset.</p>
+<p>You are receiving this email because you have to verify your email.</p>
 
-<p>Your password reset link is: <a href={{$verificationLink}}}}>{{ $verificationLink }}</a></p>
+<p>Verify your email by pressing the button: </p>
 
-<p>Please use this link to reset your password. This code will expire in 10 minutes.</p>
+<br>
 
-<p>If you did not request a password reset, no further action is required.</p>
+<a href="{{ url('/verify?token='. $verification_token) }}">
+    <button>Verify Email</button>
+</a>
+
+<p>Please use this link to verify your email. This code will expire in 10 minutes.</p>

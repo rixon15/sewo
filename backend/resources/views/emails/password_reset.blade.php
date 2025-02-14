@@ -2,7 +2,13 @@
 
 <p>You are receiving this email because you requested a password reset.</p>
 
-<p>Your password reset link is: <a href={{$verificationLink}}}}>{{ $verificationLink }}</a></p>
+<p>Reset your password by clicking on the button bellow</p>
+
+<br>
+
+<a href={{$verificationLink}}}}>
+    <button>Reset Password</button>
+</a>
 
 <p>Please use this link to reset your password. This code will expire in 10 minutes.</p>
 
