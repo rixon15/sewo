@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec1f73e5-24b6-4faf-8b11-42ae0cbea855" name="Changes" comment="">
+    <list default="true" id="ec1f73e5-24b6-4faf-8b11-42ae0cbea855" name="Changes" comment="Fixed password reset controller to work as intended">
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Hotel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Models/Review.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/factories/HotelFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_02_14_175816_create_hotels_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2025_02_15_124115_create_reviews_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Mail/PasswordResetEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Mail/PasswordResetEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Mail/VerifyEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Mail/VerifyEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/0001_01_01_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/0001_01_01_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/emails/password_reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/emails/password_reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/emails/verify_email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/emails/verify_email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +290,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -330,7 +328,7 @@
       <workItem from="1739528540215" duration="15250000" />
       <workItem from="1739544343251" duration="191000" />
       <workItem from="1739544550581" duration="631000" />
-      <workItem from="1739545499263" duration="8370000" />
+      <workItem from="1739545499263" duration="16666000" />
     </task>
     <servers />
   </component>
@@ -339,6 +337,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Fixed password reset controller to work as intended" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed password reset controller to work as intended" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

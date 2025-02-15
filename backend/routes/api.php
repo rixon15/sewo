@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 
+//auth routes
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/verify', [AuthController::class, 'verifyEmail']);
@@ -16,7 +17,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 });
 
-Route::get('/', function () {
+
+
+//health check
+Route::get('/health', function () {
     return response()->json([
         'message' => 'Server is up and running'
     ]);
