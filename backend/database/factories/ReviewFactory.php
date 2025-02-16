@@ -19,8 +19,8 @@ class ReviewFactory extends Factory
     public function definition(): array
     {
         return [
-            'hotel_id' => Hotel::factory(),
-            'user_id' => User::factory(),
+            'hotel_id' => Hotel::all()->random()->id,
+            'user_id' => User::all()->random()->id,
             'review_text' => $this->faker->paragraph(),
             'rating' => $this->faker->numberBetween(1, 5),
         ];
