@@ -13,7 +13,6 @@ class Hotel extends Model
 
     protected $fillable = [
         'name',
-        'user_id',
         'address',
         'city',
         'state',
@@ -39,4 +38,6 @@ class Hotel extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+
 }

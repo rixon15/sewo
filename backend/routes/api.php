@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HotelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -12,11 +13,20 @@ Route::post('/password/reset/email', [AuthController::class, 'sendPasswordResetE
 Route::post('/password/reset', [AuthController::class, 'passwordReset']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    //protected auth routes
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/profile', [AuthController::class, 'profile']);
+    //protected hotel routes
+    Route::post('/hotels/create', [HotelController::class, 'store']);
+    Route::delete('/hotels/{hotel}', [HotelController::class, 'destroy']);
+    Route::patch('/hotels/{hotel}', [HotelController::class, 'update']);
 
 });
 
+//hotel routes
+
+Route::get('/hotels/list', [HotelController::class, 'index']);
+Route::get('/hotels/{hotel}', [HotelController::class, 'show']);
 
 
 //health check
