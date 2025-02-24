@@ -12,7 +12,8 @@ class Review extends Model
 
     protected $fillable = [
         'review_text',
-        'rating'
+        'rating',
+        'hotel_id'
     ];
 
     public function hotel(): BelongsTo

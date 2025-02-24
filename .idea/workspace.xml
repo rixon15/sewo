@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ec1f73e5-24b6-4faf-8b11-42ae0cbea855" name="Changes" comment="Fixed password reset controller to work as intended">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Hotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Hotel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/BookingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Booking.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Models/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Review.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/factories/BookingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/BookingFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2025_02_18_113359_create_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2025_02_18_113359_create_bookings_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +335,7 @@
       <workItem from="1739815245476" duration="5000" />
       <workItem from="1739825970114" duration="141000" />
       <workItem from="1739826128642" duration="6903000" />
-      <workItem from="1739873628517" duration="2069000" />
+      <workItem from="1739873628517" duration="9251000" />
     </task>
     <servers />
   </component>

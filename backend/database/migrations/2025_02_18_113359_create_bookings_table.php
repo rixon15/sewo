@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('hotel_id');
+            $table->unsignedBigInteger('user_id');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->boolean('confirmed');
+            $table->date('confirmed_at')->nullable();
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
