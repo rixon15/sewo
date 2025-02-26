@@ -6,11 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="ec1f73e5-24b6-4faf-8b11-42ae0cbea855" name="Changes" comment="Fixed password reset controller to work as intended">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Booking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Review.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/factories/BookingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/factories/BookingFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2025_02_18_113359_create_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2025_02_18_113359_create_bookings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.spec.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +43,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rixon15&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:rixon15/sewo.git&quot;,
+    &quot;accountId&quot;: &quot;eee928bd-d54a-4a48-a85f-9cbb0fbb4779&quot;
+  }
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Users\Szilard\.config\herd-lite\bin\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/league/config" />
@@ -276,14 +307,16 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/bilo/projects/realEstate/backend/resources/views/emails&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szilard/Desktop/realEstate/sewo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -336,6 +369,10 @@
       <workItem from="1739825970114" duration="141000" />
       <workItem from="1739826128642" duration="6903000" />
       <workItem from="1739873628517" duration="9251000" />
+      <workItem from="1740391334771" duration="1878000" />
+      <workItem from="1740398777641" duration="957000" />
+      <workItem from="1740507871805" duration="4231000" />
+      <workItem from="1740521911443" duration="9004000" />
     </task>
     <servers />
   </component>
