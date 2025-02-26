@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec1f73e5-24b6-4faf-8b11-42ae0cbea855" name="Changes" comment="Fixed password reset controller to work as intended">
-<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/frontend/.postcssrc.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/assets/Logo_Sewo.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/frontend/src/app/auth/forgot-password/forgot-password.component.css" afterDir="false" />
@@ -35,60 +34,6 @@
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
-=======
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.spec.json" beforeDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/frontend/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.vscode/extensions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.vscode/tasks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.config.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main.server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.spec.json" afterDir="false" />
->>>>>>> 8a6c56ae093b65ac47fb4ac50b0a601bc3cb3ffa
->>>>>>> be671c8ad4d5ce85ae9c8cd0597edabd264c10e5
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,16 +47,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> be671c8ad4d5ce85ae9c8cd0597edabd264c10e5
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;rixon15&quot;
-<<<<<<< HEAD
-=======
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
@@ -120,25 +59,6 @@
     &quot;accountId&quot;: &quot;eee928bd-d54a-4a48-a85f-9cbb0fbb4779&quot;
   }
 }</component>
-=======
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "rixon15"
->>>>>>> be671c8ad4d5ce85ae9c8cd0597edabd264c10e5
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:rixon15/sewo.git&quot;,
-    &quot;accountId&quot;: &quot;eee928bd-d54a-4a48-a85f-9cbb0fbb4779&quot;
-  }
-<<<<<<< HEAD
-}</component>
-=======
-}]]></component>
->>>>>>> 8a6c56ae093b65ac47fb4ac50b0a601bc3cb3ffa
->>>>>>> be671c8ad4d5ce85ae9c8cd0597edabd264c10e5
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Users\Szilard\.config\herd-lite\bin\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/league/config" />
@@ -391,25 +311,8 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Szilard/Desktop/realEstate/sewo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
@@ -428,7 +331,6 @@
     "settings.editor.selected.configurable": "configurable.tailwindcss",
     "ts.external.directory.path": "C:\\Users\\Szilard\\Desktop\\realEstate\\sewo\\frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
->>>>>>> 8a6c56ae093b65ac47fb4ac50b0a601bc3cb3ffa
   }
 }]]></component>
   <component name="RecentsManager">
@@ -473,21 +375,10 @@
       <workItem from="1739825970114" duration="141000" />
       <workItem from="1739826128642" duration="6903000" />
       <workItem from="1739873628517" duration="9251000" />
-<<<<<<< HEAD
       <workItem from="1740512412398" duration="2629000" />
       <workItem from="1740515087257" duration="191000" />
       <workItem from="1740515290523" duration="95000" />
       <workItem from="1740515528987" duration="15195000" />
-=======
-<<<<<<< HEAD
-      <workItem from="1740391334771" duration="1878000" />
-      <workItem from="1740398777641" duration="957000" />
-      <workItem from="1740507871805" duration="4231000" />
-      <workItem from="1740521911443" duration="9004000" />
-=======
-      <workItem from="1740512412398" duration="624000" />
->>>>>>> 8a6c56ae093b65ac47fb4ac50b0a601bc3cb3ffa
->>>>>>> be671c8ad4d5ce85ae9c8cd0597edabd264c10e5
     </task>
     <servers />
   </component>
