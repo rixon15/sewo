@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 
 //auth routes
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/verify', [AuthController::class, 'verifyEmail']);
-Route::post('/password/reset/email', [AuthController::class, 'sendPasswordResetEmail']);
-Route::post('/password/reset', [AuthController::class, 'passwordReset']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/verify', [AuthController::class, 'verifyEmail']);
+    Route::post('/password/reset/email', [AuthController::class, 'sendPasswordResetEmail']);
+    Route::post('/password/reset', [AuthController::class, 'passwordReset']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     //protected auth routes
