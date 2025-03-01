@@ -1,6 +1,8 @@
+<app-auth-page-header></app-auth-page-header>
+
 <div class="flex flex-row h-screen">
-  <div class="w-1/2 flex bg-[#EFF3FA]"></div>
-  <div class="w-1/2 flex flex-col justify-center items-center">
+  <div class="w-1/2 hidden md:flex bg-[#EFF3FA]"></div>
+  <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
     <div>
       <div class="flex flex-col gap-y-4">
         <h1 class="font-bold text-3xl">Welcome Back to Sewo!</h1>
@@ -11,7 +13,7 @@
         <div class="flex flex-col gap-y-2 pb-10">
           <label for="email" class="font-semibold text-gray-400">Your Email</label>
           <input type="text" name="email" id="email"
-                 class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required email>
+                 class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required email [(ngModel)]="emailFieldValue">
         </div>
         <div class="flex flex-col gap-y-2">
           <label for="password" class="font-semibold text-gray-400">Password</label>
@@ -38,7 +40,7 @@
         </div>
         <div class="flex flex-row items-center justify-between mt-4">
           <div class="flex flex-row items-center gap-x-2">
-            <input type="checkbox" name="rememberMe" id="rememberMe" class="mt-0.5 cursor-pointer">
+            <input type="checkbox" name="rememberMe" id="rememberMe" class="mt-0.5 cursor-pointer" [(ngModel)]="rememberEmail" checked="{{rememberEmail}}">
             <label for="rememberMe" class="text-md">Remember Me</label>
           </div>
           <a class="text-gray-500 cursor-pointer" href="/auth/forgot-password">Forgot password?</a>

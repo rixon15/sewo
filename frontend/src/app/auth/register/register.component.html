@@ -1,1 +1,54 @@
-<p>register works!</p>
+<app-auth-page-header></app-auth-page-header>
+
+<div class="flex flex-row h-screen">
+  <div class="w-1/2 hidden md:flex bg-[#EFF3FA]"></div>
+  <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
+    <div>
+      <div class="flex flex-col gap-y-4">
+        <h1 class="font-bold text-3xl">Welcome Back to Sewo!</h1>
+        <p class="text-gray-400 text-sm font-semibold">Sign in to your account</p>
+      </div>
+
+      <form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)" class="mt-20">
+        <div class="flex flex-col gap-y-2 pb-10">
+          <label for="email" class="font-semibold text-gray-400">Your Email</label>
+          <input type="text" name="email" id="email"
+                 class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required email [(ngModel)]="emailFieldValue">
+        </div>
+        <div class="flex flex-col gap-y-2">
+          <label for="password" class="font-semibold text-gray-400">Password</label>
+          <div class="relative">
+            <input type="password" name="password" id="password"
+                   class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required
+                   minlength="8">
+            <button class="absolute inset-y-0 right-0 pr-3 flex items-center" (click)="togglePasswordVisibility()"
+                    type="button">
+              <svg *ngIf="!showPassword" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <svg *ngIf="showPassword" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24"
+                   stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-row items-center justify-between mt-4">
+          <div class="flex flex-row items-center gap-x-2">
+            <input type="checkbox" name="rememberMe" id="rememberMe" class="mt-0.5 cursor-pointer" [(ngModel)]="rememberEmail" checked="{{rememberEmail}}">
+            <label for="rememberMe" class="text-md">Remember Me</label>
+          </div>
+          <a class="text-gray-500 cursor-pointer" href="/auth/forgot-password">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full h-12 bg-blue-500 text-white font-bold text-xl mt-14 cursor-pointer">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
