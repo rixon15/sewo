@@ -6,7 +6,7 @@
 
 <br>
 
-<a href="{{ url('/verify?token='. $verification_token) }}">
+<a href="{{ env('FRONT_END_AUTH_URL') . '/verify-email?token=' . $verification_token }}">
     <button>Verify Email</button>
 </a>
 

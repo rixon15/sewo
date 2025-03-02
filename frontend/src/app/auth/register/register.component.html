@@ -5,15 +5,20 @@
   <div class="w-full md:w-1/2 flex flex-col justify-center items-center">
     <div>
       <div class="flex flex-col gap-y-4">
-        <h1 class="font-bold text-3xl">Welcome Back to Sewo!</h1>
-        <p class="text-gray-400 text-sm font-semibold">Sign in to your account</p>
+        <h1 class="font-bold text-3xl">Create your Free Account</h1>
+        <p class="text-gray-400 text-sm font-semibold">Submit your data to register</p>
       </div>
 
       <form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)" class="mt-20">
+          <div class="flex flex-col gap-y-2 pb-10">
+            <label for="name" class="font-semibold text-gray-400">Full Name</label>
+            <input type="text" name="name" id="name"
+                   class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required>
+          </div>
         <div class="flex flex-col gap-y-2 pb-10">
           <label for="email" class="font-semibold text-gray-400">Your Email</label>
           <input type="text" name="email" id="email"
-                 class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required email [(ngModel)]="emailFieldValue">
+                 class="w-full h-12 rounded-md border-black border-2 px-4 font-semibold" ngModel required email >
         </div>
         <div class="flex flex-col gap-y-2">
           <label for="password" class="font-semibold text-gray-400">Password</label>
@@ -38,16 +43,16 @@
             </button>
           </div>
         </div>
-        <div class="flex flex-row items-center justify-between mt-4">
+        <div class="flex flex-row items-center justify-start mt-4">
           <div class="flex flex-row items-center gap-x-2">
-            <input type="checkbox" name="rememberMe" id="rememberMe" class="mt-0.5 cursor-pointer" [(ngModel)]="rememberEmail" checked="{{rememberEmail}}">
-            <label for="rememberMe" class="text-md">Remember Me</label>
+            <input type="checkbox" name="terms" id="terms" class="mt-0.5 cursor-pointer" [(ngModel)]="terms">
+            <label for="terms" class="text-md">I agree to Sewo <a href="/security" class="text-blue-500">Security</a> and <a href="/privacy-policy" class="text-blue-500">Privacy Policy</a></label>
           </div>
-          <a class="text-gray-500 cursor-pointer" href="/auth/forgot-password">Forgot password?</a>
         </div>
         <button type="submit" class="w-full h-12 bg-blue-500 text-white font-bold text-xl mt-14 cursor-pointer">
-          Login
+            Get Started
         </button>
+        <div class="flex flex-row items-center justify-center mt-6">Already have an account? <a href="/login" class="text-blue-500">Login</a></div>
       </form>
     </div>
   </div>
