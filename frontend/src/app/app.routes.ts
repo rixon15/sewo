@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'auth/login', component: LoginComponent, canActivate: [NoAuthGuard] },
   { path: 'auth/register', component: RegisterComponent, canActivate: [NoAuthGuard] },
   { path: 'auth/forgot-password', component: ForgotPasswordComponent },
-  { path: 'auth/verify-email', component: VerifyEmailComponent }
+  { path: 'auth/verify-email', component: VerifyEmailComponent, canActivate: [NoAuthGuard] }
 ];

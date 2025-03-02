@@ -26,6 +26,10 @@ export class AuthService {
     return this.http.post(`${environment.apiUrl}/register`, user);
   }
 
+  verifyEmail(token: string): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/verify`, { token });
+  }
+
   logout() {
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
