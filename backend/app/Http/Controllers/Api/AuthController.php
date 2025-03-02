@@ -151,7 +151,7 @@ class AuthController extends Controller
      * @propery string $email
      * @return RedirectResponse
      */
-    public function sendPasswordResetEmail(Request $request): RedirectResponse
+    public function sendPasswordResetEmail(Request $request): JsonResponse
     {
 
         $user = User::where('email', $request->email)->first();
@@ -178,12 +178,14 @@ class AuthController extends Controller
 
         try {
             Mail::to($user->email)->send(new PasswordResetEmail($verificationLink));
+
+            return response()->json(['message' => 'Password reset email sent successfully']);
         } catch (Exception $e) {
             Log::error($e);
-            return back()->withErrors(['email' => 'An error occurred while sending the email']);
+            return response()->json(['message' => 'An error occurred while sending the email'], 500);
         }
 
-        return back()->with(['status' => 'A password reset link has been sent to your email']);
+        // return back()->with(['status' => 'A password reset link has been sent to your email']);
 
     }
 

@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject, Observable, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { BehaviorSubject, Observable, Observer, of } from "rxjs";
+import { catchError, map, retry, tap } from "rxjs/operators";
 import { environment } from "../../../environments/environments";
 
 @Injectable({ providedIn: 'root' })
@@ -28,6 +28,12 @@ export class AuthService {
 
   verifyEmail(token: string): Observable<any> {
     return this.http.post(`${environment.apiUrl}/verify`, { token });
+  }
+
+  sendPasswordResetLink(email: string): Observable<any> {
+
+    return this.http.post(`${environment.apiUrl}/password/reset/email`, email)
+
   }
 
   logout() {
