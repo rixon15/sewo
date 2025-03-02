@@ -157,7 +157,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (!$user) {
-            return back()->withErrors(['email' => 'No user associated with the submitted email address']);
+            return response()->json(['message' => 'No user associated with the submitted email address'], 404);
         }
 
         $token = Str::random();
@@ -170,14 +170,10 @@ class AuthController extends Controller
         ]);
 
 
-        $verificationLink = URL::temporarySignedRoute(
-            'password.reset',
-            $expiry,
-            ['token' => $token, 'email' => $user->email]
-        );
+        $frontendUrl = env('FRONTEND_AUTH_URL') . "/password/reset/?token=" . $token . "&email=" . $user->email . "&expires=" . $expiry->timestamp;
 
         try {
-            Mail::to($user->email)->send(new PasswordResetEmail($verificationLink));
+            Mail::to($user->email)->send(new PasswordResetEmail($frontendUrl));
 
             return response()->json(['message' => 'Password reset email sent successfully']);
         } catch (Exception $e) {
@@ -185,7 +181,6 @@ class AuthController extends Controller
             return response()->json(['message' => 'An error occurred while sending the email'], 500);
         }
 
-        // return back()->with(['status' => 'A password reset link has been sent to your email']);
 
     }
 
@@ -202,35 +197,45 @@ class AuthController extends Controller
             'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|string|min:8|max:255',
+            'expires' => 'required|string'
         ]);
+
+        $expiresAt = Carbon::createFromTimestamp($request->expires);
+
+        if(Carbon::now()->greaterThan($expiresAt)) {
+            return response()->json([
+                'message' => 'Token has expired'
+            ], 400);
+        }
 
         $passwordResetToken = DB::table('password_reset_tokens')
             ->where('email', $request->email)
-            ->where('created_at', '>', Carbon::now()->subMinutes(10))
             ->first();
 
-        if ($passwordResetToken && Hash::check($request->token, $passwordResetToken->token)) {
-
-
-
-            $user = User::where('email', $request->email)->first();
-            if (!$user) {
-                return response()->json([
-                    'message' => 'User not found'
-                ], 404);
-            }
-
-            $user->password = Hash::make($request->password);
-            $user->save();
-
-            DB::table('password_reset_tokens')->where('email', $user->email)->delete();
-
+        if(!$passwordResetToken) {
             return response()->json([
-                'message' => 'Password reset successfully'
-            ]);
-
-
+                'message' => 'Invalid token or email'
+            ], 400);
         }
+
+        if(!Hash::check($request->token, $passwordResetToken->token)) {
+            return response()->json([
+                'message' => 'Invalid token'
+            ], 400);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        DB::table('password_reset_tokens')->where('email', $user->email)->delete();
 
         return response()->json([
             'message' => 'Something went wrong on the server'
