@@ -1,13 +1,12 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { BehaviorSubject, Observable, Observer, of } from "rxjs";
-import { catchError, map, retry, tap } from "rxjs/operators";
-import { environment } from "../../../environments/environments";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Observer, of } from 'rxjs';
+import { catchError, map, retry, tap } from 'rxjs/operators';
+import { environment } from '../../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
@@ -16,13 +15,24 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) {
     this.checkAuth();
+    console.log(this.userData$);
   }
 
-  login(credentials: { email: string, password: string }): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, credentials);
+  login(credentials: { email: string; password: string }): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/login`, credentials).pipe(
+      tap((response: any) => {
+        localStorage.setItem('token', response.token);
+        this.isLoggedInSubject.next(true);
+        this.userDataSubject.next(response.user);
+      })
+    );
   }
 
-  register(user: { name: string, email: string, password: string }): Observable<any> {
+  register(user: {
+    name: string;
+    email: string;
+    password: string;
+  }): Observable<any> {
     return this.http.post(`${environment.apiUrl}/register`, user);
   }
 
@@ -31,46 +41,59 @@ export class AuthService {
   }
 
   sendPasswordResetLink(email: string): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/password/reset/email`, email);
+  }
 
-    return this.http.post(`${environment.apiUrl}/password/reset/email`, email)
+  resetPassword(
+    token: string,
+    password: string,
+    email: string,
+    expires: string
+  ): Observable<any> {
+    console.log({ token, password, email, expires });
 
+    return this.http.post(`${environment.apiUrl}/password/reset`, {
+      token,
+      password,
+      email,
+      expires,
+    });
   }
 
   logout() {
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
-    this.router.navigate(['/login']); // redirect to login page
+    this.userDataSubject.next(null);
+    this.router.navigate(['/auth/login']); // redirect to login page
   }
 
-  checkAuth(): void {
-
+  checkAuth(): Observable<boolean> {
     const token = localStorage.getItem('token');
     if (token) {
-      this.http.get(`${environment.apiUrl}/profile`, { // Make a request to the protected /profile endpoint
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
+      return this.http
+        .get(`${environment.apiUrl}/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .pipe(
           tap((response) => {
-            this.userDataSubject.next(response); //store user data
+            this.isLoggedInSubject.next(true); // set auth status to true
+            this.userDataSubject.next(response); // store user data
             console.log('Authentication successful:', response);
           }),
-          map(() => true), //auth successful
+          map(() => true), // auth successful
           catchError((error) => {
+            this.isLoggedInSubject.next(false);
             this.userDataSubject.next(null);
             console.error('Authentication failed:', error);
             return of(false);
-          }
-          )
-        ).subscribe((isAuthenticated) => {
-          this.isLoggedInSubject.next(isAuthenticated)
-        })
+          })
+        );
     } else {
       this.isLoggedInSubject.next(false);
-      this.userDataSubject.next(null)
+      this.userDataSubject.next(null);
+      return of(false);
     }
   }
-
-
 }

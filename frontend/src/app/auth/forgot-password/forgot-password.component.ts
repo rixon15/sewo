@@ -3,11 +3,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { AuthPageHeaderComponent } from '../shared-components/auth-page-header/auth-page-header.component';
 
 @Component({
   selector: 'app-forgot-password',
   imports: [
-    FormsModule
+    FormsModule,
+    AuthPageHeaderComponent
   ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css'
@@ -27,7 +29,7 @@ export class ForgotPasswordComponent {
         this.toaster.success('Please check your email for further instructions');
 
         setTimeout(() => {
-          this.router.navigate(['/'])
+          this.router.navigate(['/auth/login'])
         }, 1000)
       },
       error: (error: any) => {
