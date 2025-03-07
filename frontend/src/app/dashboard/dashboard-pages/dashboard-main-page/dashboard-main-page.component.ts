@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, firstValueFrom, Subscription, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HotelCardComponent } from '../../shared-components/hotel-card/hotel-card-vertical/hotel-card.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 interface locationOption {
   value: string;
   label: string;
@@ -42,7 +42,7 @@ interface HotelResponse {
   },
 })
 export class DashboardMainPageComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   isLoading: boolean = false;
   locationOptions: locationOption[] | null = null;
@@ -119,7 +119,21 @@ export class DashboardMainPageComponent implements OnInit {
     }
   }
 
-  handleSubmit(form: NgForm) {}
+  handleSubmit(form: NgForm) {
+    const buildingInput = document.querySelector('#BuildingOptions');
+    const DateInput = document.querySelector('#DateOptions');
+    const LocationInput = document.querySelector('#LocationOptions');
+
+    if (buildingInput && DateInput && LocationInput) {
+      this.router.navigate(['/search'], {
+        queryParams: {
+          building: (buildingInput as HTMLSelectElement).value,
+          date: (DateInput as HTMLSelectElement).value,
+          location: (LocationInput as HTMLSelectElement).value,
+        },
+      });
+    }
+  }
 
   private generateNextTwoWeeks(): string[] {
     const today = new Date();

@@ -7,20 +7,20 @@
                 class="flex lg:flex-row flex-col items-center justify-center gap-x-12 gap-y-6">
                 <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
                     <img src="assets/buildings.svg" alt="Rent a building" class="lg:block hidden">
-                    <ng-select [items]="buildingOptions" bindLabel="label" bindValue="value"
+                    <ng-select id="BuildingOptions" [items]="buildingOptions" bindLabel="label" bindValue="value"
                         [(ngModel)]="selectedBuidlingOption" [ngModelOptions]="{standalone: true}"
                         placeholder="Select an option" class=" max-h-8 w-full">
                     </ng-select>
                 </div>
                 <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
                     <img src="assets/calendar.svg" alt="Choose a date" class="lg:block hidden">
-                    <ng-select [items]="dateOptions" bindLabel="label" bindValue="value" placeholder="Select an option"
+                    <ng-select id="DateOptions" [items]="dateOptions" bindLabel="label" bindValue="value" placeholder="Select an option"
                         class=" max-h-8 w-full">
                     </ng-select>
                 </div>
                 <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
                     <img src="assets/location.svg" alt="Choose a location" class="lg:block hidden">
-                    <ng-select [items]="locationOptions" bindLabel="label" bindValue="value"
+                    <ng-select id="LocationOptions" [items]="locationOptions" bindLabel="label" bindValue="value"
                         placeholder="Select an option" class=" max-h-8 w-full">
                     </ng-select>
                 </div>
