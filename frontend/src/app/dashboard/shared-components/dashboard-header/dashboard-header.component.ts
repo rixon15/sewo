@@ -17,14 +17,17 @@ export class DashboardHeaderComponent {
 
   handleSearch(): void {
 
-    const input = document.getElementById('searchBard') as HTMLInputElement;
+    const input = document.getElementById('searchBar') as HTMLInputElement;
+
+    console.log(input)
     
     const text = input.value;
+
 
     if(text.length < 1) {
       return;
     } else {
-      this.router.navigate(['/search']);  
+      this.router.navigate([`/search?q=${text}`]);  
     }
 
   }
