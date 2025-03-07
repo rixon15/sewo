@@ -1,1 +1,8 @@
-<p>dashboard-header works!</p>
+<div class="flex flex-row w-full items-center justify-between py-4 px-12 border-l-4 border-gray-100 ]">
+    <a [routerLink]="['/']" class="md:hidden flex items-center justify-center">
+        <img src="assets/Logo_Sewo.svg" alt="Logo" class="w-28 h-10" />
+    </a>
+    <input type="text" (keydown.enter)="handleSearch()" name="searchBar" id="searchBar" class="md:block hidden w-[55%] max-w-[500px] p-2 border border-gray-300 rounded-lg" placeholder="Search here...">
+<!-- <img src="assets/images/search-icon.svg" alt="search icon" class="rounded-full size-10"> -->
+    <div class="rounded-full size-10 bg-red-600"></div>
+</div>

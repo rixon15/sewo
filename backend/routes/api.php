@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 //hotel routes
 
 Route::get('/hotels/list', [HotelController::class, 'index']);
+Route::get('/hotels/listByCategory', [HotelController::class, 'indexbyCategory']);
 Route::get('/hotels/{hotel}', [HotelController::class, 'show']);
 
 

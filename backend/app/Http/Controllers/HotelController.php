@@ -21,7 +21,7 @@ class HotelController extends Controller
         $limit = $request->query('limit', 1);
 
 
-        $hotels = Hotel::query()->paginate($limit);
+        $hotels = Hotel::query()->with(['images', 'mainImage'])->paginate($limit);
 
         if ($hotels->isNotEmpty()) {
             return response()->json([
@@ -33,6 +33,57 @@ class HotelController extends Controller
                 'message' => 'Hotel not found in the database'
             ], 401);
         }
+    }
+
+    public function indexByCategory(Request $request): JsonResponse
+    {
+        $category = $request->query('category', 'Popular');
+        $limit = $request->query('limit', 4);
+
+        switch ($category) {
+            case 'Popular':
+
+                $hotels = Hotel::query()
+                    ->withCount('bookings')
+                    ->with(['images', 'mainImage'])
+                    ->orderByDesc('bookings_count')
+                    ->paginate($limit);
+
+                break;
+            case 'Recommended':
+
+                $hotels = Hotel::query()
+                    ->withAvg('reviews', 'rating')
+                    ->with(['images', 'mainImage'])
+                    ->orderByDesc('star_rating')
+                    ->paginate($limit);
+
+                break;
+            case 'Nearest':
+                //Todo: Implement geolocation sorting
+                $hotels = Hotel::query()
+                    ->with(['images', 'mainImage'])
+                    ->inRandomOrder()
+                    ->paginate($limit);
+
+                break;
+            default:
+                return response()->json([
+                    'message' => 'Invalid category'
+                ], 400);
+        }
+
+        if ($hotels->isNotEmpty()) {
+            return response()->json([
+                'message' => 'Hotels retrieved successfully',
+                'data' => $hotels
+            ], 200);
+
+        }
+
+        return response()->json([
+            'message' => 'Hotels not found for this category'
+        ], 404);
     }
 
 
@@ -60,6 +111,7 @@ class HotelController extends Controller
             "wifi" => 'required|boolean',
             "parking_area" => 'required|boolean',
             "smoking_area" => 'required|boolean',
+            'price' => 'required|integer|min:100',
         ]);
 
         $user = Auth::user();

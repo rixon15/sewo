@@ -12,16 +12,56 @@ import { DashboardMessagesComponent } from './dashboard/dashboard-pages/dashboar
 import { DashboardMyProfileComponent } from './dashboard/dashboard-pages/dashboard-my-profile/dashboard-my-profile.component';
 import { AuthGuard } from './route-guards/AuthGuard';
 import { AuthResolver } from './auth/auth-resolver/auth-resolver';
+import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout/dashboard-layout.component';
 
 export const routes: Routes = [
-  { path: 'auth/login', component: LoginComponent, canActivate: [NoAuthGuard],},
-  { path: 'auth/register', component: RegisterComponent, canActivate: [NoAuthGuard],},
-  { path: 'auth/forgot-password', component: ForgotPasswordComponent, canActivate: [NoAuthGuard],},
-  { path: 'auth/verify-email', component: VerifyEmailComponent, canActivate: [NoAuthGuard],},
-  { path: 'auth/password/reset', component: PasswordResetComponent, canActivate: [NoAuthGuard],},
-  { path: '', component: DashboardMainPageComponent, canActivate: [AuthGuard], resolve: { auth: AuthResolver } },
-  { path: 'explore', component: DashboardExploreComponent, canActivate: [AuthGuard], resolve: { auth: AuthResolver } },
-  { path: 'orders', component: DashboardMyOrderComponent, canActivate: [AuthGuard], resolve: { auth: AuthResolver } },
-  { path: 'messages', component: DashboardMessagesComponent, canActivate: [AuthGuard], resolve: { auth: AuthResolver } },
-  { path: 'profile', component: DashboardMyProfileComponent, canActivate: [AuthGuard], resolve: { auth: AuthResolver } },
+  { path: 'auth/login', component: LoginComponent, canActivate: [NoAuthGuard] },
+  {
+    path: 'auth/register',
+    component: RegisterComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'auth/forgot-password',
+    component: ForgotPasswordComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'auth/verify-email',
+    component: VerifyEmailComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'auth/password/reset',
+    component: PasswordResetComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: '',
+    component: DashboardLayoutComponent,
+    children: [
+      { path: '', 
+        component: DashboardMainPageComponent, 
+        pathMatch: 'full',
+      },
+      {
+        path: 'explore',
+        component: DashboardExploreComponent,
+      },
+      {
+        path: 'orders',
+        component: DashboardMyOrderComponent,
+      },
+      {
+        path: 'messages',
+        component: DashboardMessagesComponent,
+      },
+      {
+        path: 'profile',
+        component: DashboardMyProfileComponent,
+      },
+    ],
+    canActivate: [AuthGuard],
+    resolve: { auth: AuthResolver },
+  },
 ];

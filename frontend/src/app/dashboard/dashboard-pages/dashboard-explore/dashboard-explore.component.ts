@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { DashboardMenuComponent } from '../../shared-components/dashboard-menu/dashboard-menu.component';
 
 @Component({
   selector: 'app-dashboard-explore',
-  imports: [DashboardMenuComponent],
+  imports: [],
   templateUrl: './dashboard-explore.component.html',
   styleUrl: './dashboard-explore.component.css'
 })

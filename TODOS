@@ -1,1 +1,11 @@
-Expiration Date for password reset token
+Modify User on the backend to have profile picture which gets uploaded from the settings page
+Add images to the auth pages
+Backend search functionality 
+Modify the Hotels table -> create a sepparate table for Locations and reference it in Hotels, modify the store function in the Hotels controller.
+Implement menu for mobile devices
+Add max width to header serachbar
+Implement the correct redirect to the /search page in the header
+Create an upload service on the backend to upload images to cloudinary, modify the user and hotels store function to include the upload service.
+Check the database relations, and modify the controllers according to the needs of the frontend. (This can be done on the fly aswell)
+Implement sorting by geolocations
+Improve querry times in hotelcontroller

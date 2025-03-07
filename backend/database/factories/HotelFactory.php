@@ -40,6 +40,7 @@ class HotelFactory extends Factory
             'wifi' => $this->faker->boolean,
             'parking_area' => $this->faker->boolean,
             'smoking_area' => $this->faker->boolean,
+            'price' => $this->faker->numberBetween(5000, 10000),
         ];
     }
 }

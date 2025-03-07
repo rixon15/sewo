@@ -1,4 +1,74 @@
-<div class="flex flex-row w-full min-h-screen">
-    <app-dashboard-menu></app-dashboard-menu>
-    <div class=""></div>
+<!-- Find your best real estate section -->
+<div class="flex flex-col w-full items-center justify-center mb-6">
+    <div class="w-full">
+        <h1 class="font-bold text-xl pb-6">Find your Best Real Estate</h1>
+        <div class="flex flex-col bg-white shadow-md rounded-2xl p-5 ">
+            <form #searchForm="ngForm" (ngSubmit)="handleSubmit(searchForm)"
+                class="flex lg:flex-row flex-col items-center justify-center gap-x-12 gap-y-6">
+                <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
+                    <img src="assets/buildings.svg" alt="Rent a building" class="lg:block hidden">
+                    <ng-select [items]="buildingOptions" bindLabel="label" bindValue="value"
+                        [(ngModel)]="selectedBuidlingOption" [ngModelOptions]="{standalone: true}"
+                        placeholder="Select an option" class=" max-h-8 w-full">
+                    </ng-select>
+                </div>
+                <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
+                    <img src="assets/calendar.svg" alt="Choose a date" class="lg:block hidden">
+                    <ng-select [items]="dateOptions" bindLabel="label" bindValue="value" placeholder="Select an option"
+                        class=" max-h-8 w-full">
+                    </ng-select>
+                </div>
+                <div class="flex flex-row gap-x-4 lg:w-[25%] w-full lg:max-w-[300px]">
+                    <img src="assets/location.svg" alt="Choose a location" class="lg:block hidden">
+                    <ng-select [items]="locationOptions" bindLabel="label" bindValue="value"
+                        placeholder="Select an option" class=" max-h-8 w-full">
+                    </ng-select>
+                </div>
+                <button type="submit" class="lg:w-[150px] w-full bg-blue-500 h-10 rounded-xl font-bold text-white">Search</button>
+            </form>
+            <span class="lg:block hidden w-full h-[1px] bg-gray-400 my-8"></span>
+            <div class="lg:flex hidden flex-row items-center justify-between">
+                <div *ngIf="isLoading" class="w-full flex justify-center p-8">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                </div>
+
+                <ng-container *ngIf="!isLoading">
+                    <div *ngFor="let hotel of hotelArray" class="flex flex-col max-w-[32%]">
+                        <a [routerLink]="['/hotel', hotel.id]">
+                            <app-hotel-card [hotel]="hotel"></app-hotel-card>
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popular, recommended, nearest section -->
+
+<div class="flex flex-col w-full items-center justify-center bg-white shadow-md p-5 pb-0 rounded-3xl">
+
+    <div class="flex flex-row items-center lg:justify-start justify-center w-full gap-x-1 mb-10">
+        <p class="py-2 px-6 rounded-md cursor-pointer hover:bg-gray-300 hover:duration-200" id="Recommended"
+            [ngClass]="{'bg-gray-300': currentCategory === 'Popular'}" (click)="changeCategory($event)">Popular
+        </p>
+        <p class="py-2 px-6 rounded-md cursor-pointer hover:bg-gray-300 hover:duration-200" id="Nearest"
+            [ngClass]="{'bg-gray-300': currentCategory === 'Recommended'}" (click)="changeCategory($event)">Recommended
+        </p>
+        <p class="py-2 px-6 rounded-md cursor-pointer sm:block hidden hover:bg-gray-300 hover:duration-200" id="Popular"
+            [ngClass]="{'bg-gray-300': currentCategory === 'Nearest'}" (click)="changeCategory($event)">Nearest</p>
+    </div>
+
+
+    
+    <div class="grid grid-cols-1 xl:grid-cols-2 w-full h-full">
+        
+        <ng-container *ngIf="!isLoading">
+            <div *ngFor="let hotel of hotelByCategory" class="flex flex-col  w-full">
+                <a [routerLink]="['/hotel', hotel.id]">
+                    <app-hotel-card-horizontal [hotel]="hotel"></app-hotel-card-horizontal>
+                </a>
+            </div>
+        </ng-container>
+    </div>
 </div>

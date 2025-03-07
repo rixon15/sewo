@@ -28,6 +28,7 @@ return new class extends Migration {
             $table->boolean('wifi');
             $table->boolean('parking_area');
             $table->boolean('smoking_area');
+            $table->integer('price');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
