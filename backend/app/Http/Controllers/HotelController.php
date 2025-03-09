@@ -153,8 +153,23 @@ class HotelController extends Controller
     public function show(Hotel $hotel): JsonResponse
     {
         try {
+            $hotel->load([
+                'images',
+                'mainImage',
+                'reviews.user' => function ($query) {
+                    $query->select('id', 'name');
+                },
+                'user' => function ($query)  {
+                    $query->select('id', 'name', 'email' )
+                    ->withCount('hotel');
+                },
+                'reviews' => function ($query) {
+                    $query->latest();
+                }
+            ])->loadAvg('reviews', 'rating');
+
             return response()->json([
-                'message' => 'Hotel retrieved successfully',
+                'message' => 'Hotel retrieved succesfully',
                 'data' => $hotel
             ]);
         } catch (ModelNotFoundException) {
@@ -162,8 +177,6 @@ class HotelController extends Controller
                 'message' => 'Hotel not found in the database!',
             ], 404);
         }
-
-
     }
 
     /**

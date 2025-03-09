@@ -1,1 +1,82 @@
-<p>dashboard-hotel-details works!</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-6 rounded-xl ">
+    <div class="left-column col-span-2">
+        <div class="grid grid-cols-2 gap-2">
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg row-span-2">
+                <img src={{hotelData?.main_image!.url}} alt="Apartment" class="object-cover w-full h-full">
+            </div>
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg">
+                <img src={{hotelData?.images![0].url}} alt="Apartment" class="object-cover w-full h-full">
+            </div>
+            <!-- Todo: Implement the images slideshow thingie -->
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg relative">
+                <img src={{hotelData?.images![1].url}} alt="Apartment" class="object-cover w-full h-full">
+                <div
+                    class="bg-gray-800 w-full h-full z-10 absolute top-0 left-0 opacity-60 text-white flex items-center justify-center text-2xl cursor-pointer">
+                    +{{hotelData?.images!.length}}</div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-col">
+                    <h2 class="text-2xl font-semibold">{{hotelData?.name}}</h2>
+                    <p class="text-gray-600">{{hotelData?.address}}</p>
+                </div>
+                <div class="flex items-center flex-col">
+                    <span class="text-yellow-500 w-full">★★★★★</span>
+                    <span class="font-bold w-full">Price</span>
+                    <span class="text-sm text-gray-500 w-full"><strong
+                            class="font-bold text-xl text-blue-600">${{hotelData?.price}}</strong> /night</span>
+                </div>
+            </div>
+            <h2 class="font-bold">Facility</h2>
+
+            <div class="flex flex-row gap-x-20 justify-between flex-wrap">
+                <p>{{hotelData?.beds}} Beds</p>
+                <p>{{hotelData?.baths}} Baths</p>
+                <p>{{hotelData?.area}}M area</p>
+                <p *ngIf="hotelData?.smoking_area">Smoking Area</p>
+                <p *ngIf="hotelData?.kitchhen">kitchhen</p>
+                <p *ngIf="hotelData?.balcony">Balcony</p>
+                <p *ngIf="hotelData?.wifi">Wifi</p>
+                <p *ngIf="hotelData?.parking_area">Parking Area</p>
+            </div>
+            <h2 class="font-bold">Description</h2>
+            <p class="mt-4 text-gray-700">{{hotelData?.description}}</p>
+        </div>
+    </div>
+    <div class="right-column relative">
+        <div class="shadow-lg shadow-gray-400 p-3 border-[1px] border-gray-300">
+            <div class="flex flex-col items-center mb-4">
+                <div class="size-16 overflow-hidden">
+                    <img src="https://res.cloudinary.com/dcgceac4l/image/upload/v1741177141/hotel_stock_image_nc4rip.jpg"
+                        alt="Agent" class="object-cover w-full h-full">
+                </div>
+                <div class="ml-4 flex flex-col items-center">
+                    <h3 class="text-lg font-semibold">{{hotelData?.user!.name}}</h3>
+                    <p class="text-sm text-gray-500">{{hotelData?.address}}</p>
+                    <p class="text-sm ">{{hotelData?.user!.hotel_count}} Properties</p>
+                </div>
+            </div>
+            <div class="flex justify-around mb-4">
+                <a href="!#"
+                    class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2 w-[45%] max-w-[150px] flex items-center justify-center">Message</a>
+                <a href="mailto:${{hotelData?.user!.email}}"
+                    class="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 w-[45%] max-w-[150px] flex items-center justify-center">Mail</a>
+            </div>
+        </div>
+        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg mb-4">
+        </div>
+        <div class="hidden lg:flex map-container  w-full h-[40%] xl:h-1/2 relative rounded-lg overflow-hidden">
+            <div *ngIf="isMapLoaded" class="absolute inset-0 top-0 left-0">
+                <google-map [center]="center" [zoom]="zoom" [options]="mapOptions" height="100%" width="100%">
+                    <map-marker *ngFor="let marker of markers" [position]="marker">
+                    </map-marker>
+                </google-map>
+            </div>
+            <div *ngIf="!isMapLoaded" class="w-full h-full bg-gray-200 flex items-center justify-center">
+                Loading map...
+            </div>
+        </div>
+        <button class="bg-blue-500 hover:bg-blue-600 md:absolute md:bottom-0  text-white rounded-lg  py-3 w-full">Book Now</button>
+    </div>
+</div>

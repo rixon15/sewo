@@ -73,13 +73,13 @@ export class DashboardMainPageComponent implements OnInit {
 
       //Subscribe to category changes
 
-      if(!this.initialRender) {
         this.categorySubscription = this.categorySubject.subscribe(
           async (category) => {
-            this.hotelByCategory = await this.fetchHotelsByCategory(category);
+            if(!this.initialRender) {
+              this.hotelByCategory = await this.fetchHotelsByCategory(category);
+            }
           }
         );
-      }
     } finally {
       this.isLoading = false;
       this.initialRender = false;

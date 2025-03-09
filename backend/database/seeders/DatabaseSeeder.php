@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
                 'is_main' => true,
             ]);
 
-            Booking::factory()->create([
+            Booking::factory(random_int(5, 15))->create([
                 'hotel_id' => $hotel->id,
             ]);
 
