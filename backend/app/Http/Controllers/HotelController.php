@@ -53,9 +53,9 @@ class HotelController extends Controller
             case 'Recommended':
 
                 $hotels = Hotel::query()
-                    ->withAvg('reviews', 'rating')
+                    ->withAvg('reviews as average_rating', 'rating')
                     ->with(['images', 'mainImage'])
-                    ->orderByDesc('star_rating')
+                    ->orderByDesc('average_rating')
                     ->paginate($limit);
 
                 break;

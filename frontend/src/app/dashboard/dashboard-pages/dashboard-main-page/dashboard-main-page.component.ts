@@ -60,6 +60,7 @@ export class DashboardMainPageComponent implements OnInit {
   hotelArray: any[] = [];
   hotelByCategory: any[] = [];
   currentCategory: string = 'Popular';
+  initialRender = true;
   private categorySubject = new BehaviorSubject<string>('Recommended');
   private categorySubscription: Subscription | null = null;
 
@@ -72,13 +73,16 @@ export class DashboardMainPageComponent implements OnInit {
 
       //Subscribe to category changes
 
-      this.categorySubscription = this.categorySubject.subscribe(
-        async (category) => {
-          this.hotelByCategory = await this.fetchHotelsByCategory(category);
-        }
-      );
+      if(!this.initialRender) {
+        this.categorySubscription = this.categorySubject.subscribe(
+          async (category) => {
+            this.hotelByCategory = await this.fetchHotelsByCategory(category);
+          }
+        );
+      }
     } finally {
       this.isLoading = false;
+      this.initialRender = false;
     }
   }
 
@@ -89,6 +93,7 @@ export class DashboardMainPageComponent implements OnInit {
   }
 
   private async fetchData(): Promise<void> {
+    this.initialRender = true;
     try {
       const locationPromise = firstValueFrom(
         this.http.get<locationData[]>('assets/locations/locationsRomania.json')
@@ -117,6 +122,7 @@ export class DashboardMainPageComponent implements OnInit {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+
   }
 
   handleSubmit(form: NgForm) {

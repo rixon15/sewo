@@ -13,6 +13,7 @@ import { DashboardMyProfileComponent } from './dashboard/dashboard-pages/dashboa
 import { AuthGuard } from './route-guards/AuthGuard';
 import { AuthResolver } from './auth/auth-resolver/auth-resolver';
 import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout/dashboard-layout.component';
+import { DashboardHotelDetailsComponent } from './dashboard/dashboard-pages/dashboard-hotel-details/dashboard-hotel-details.component';
 
 export const routes: Routes = [
   { path: 'auth/login', component: LoginComponent, canActivate: [NoAuthGuard] },
@@ -59,6 +60,10 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: DashboardMyProfileComponent,
+      },
+      {
+        path: 'hotel/:id',
+        component: DashboardHotelDetailsComponent,
       },
     ],
     canActivate: [AuthGuard],

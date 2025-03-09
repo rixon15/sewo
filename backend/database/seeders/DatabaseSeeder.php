@@ -35,15 +35,17 @@ class DatabaseSeeder extends Seeder
             Booking::factory()->create([
                 'hotel_id' => $hotel->id,
             ]);
+
+            Review::factory(10)->create([
+                'hotel_id' => $hotel->id,
+            ]);
         });
 
 
-        Review::factory(10)->create();
-
-       User::factory()->create([
-           'name' => 'Test User',
-           'email' => 'test@test.com',
-           'password' => 'password',
-       ]);
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@test.com',
+            'password' => 'password',
+        ]);
     }
 }

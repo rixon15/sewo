@@ -27,7 +27,7 @@ export class DashboardHeaderComponent {
     if(text.length < 1) {
       return;
     } else {
-      this.router.navigate([`/search?q=${text}`]);  
+      this.router.navigate([`/search`], { queryParams: { q: text } });  
     }
 
   }

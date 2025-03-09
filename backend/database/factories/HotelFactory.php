@@ -24,14 +24,13 @@ class HotelFactory extends Factory
         $states = ['Alaska', 'Alabama', 'Arkansas', 'American Samoa', 'Arizona', 'California', 'Colorado', 'Connecticut', 'District of Columbia', 'Delaware', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Iowa', 'Idaho', 'Illinois', 'Indiana', 'Kansas', 'Kentucky', 'Louisiana', 'Massachusetts', 'Maryland', 'Maine', 'Michigan', 'Minnesota', 'Missouri', 'Mississippi', 'Montana', 'North Carolina', 'North Dakota', 'Nebraska', 'New Hampshire', 'New Jersey', 'New Mexico', 'Nevada', 'New York', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Virginia', 'Virgin Islands', 'Vermont', 'Washington', 'Wisconsin', 'West Virginia', 'Wyoming'];
 
         return [
-            'user_id' => User::all()->random()->id,
+            'user_id' => 0,
             'name' => substr($this->faker->company() . ' Hotel', 0, 250),
             'address' => $this->faker->streetAddress(),
             'city' => $this->faker->city(),
             'state' => $this->faker->randomElement($states),
             'zip' => $this->faker->postcode(),
-            'description' => $this->faker->paragraph(),
-            'star_rating' => $this->faker->numberBetween(1, 5),
+            'description' => $this->faker->text(200),
             'beds' => $this->faker->numberBetween(1, 5),
             'baths' => $this->faker->numberBetween(1, 3),
             'area' => $this->faker->numberBetween(15, 30),

@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('description');
-            $table->string('star_rating')->nullable();
             $table->integer('beds');
             $table->integer('baths');
             $table->integer('area');

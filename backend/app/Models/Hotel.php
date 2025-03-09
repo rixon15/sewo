@@ -19,7 +19,6 @@ class Hotel extends Model
         'state',
         'zip',
         'description',
-        'star_rating',
         'beds',
         'baths',
         'area',
