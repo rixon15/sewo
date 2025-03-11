@@ -153,23 +153,23 @@ class HotelController extends Controller
     public function show(Hotel $hotel): JsonResponse
     {
         try {
+            // Combine related loads into a single query
             $hotel->load([
-                'images',
-                'mainImage',
-                'reviews.user' => function ($query) {
-                    $query->select('id', 'name');
-                },
-                'user' => function ($query)  {
-                    $query->select('id', 'name', 'email' )
-                    ->withCount('hotel');
-                },
+                'images:id,hotel_id,url,is_main',  
+                'mainImage:id,hotel_id,url',       
                 'reviews' => function ($query) {
-                    $query->latest();
+                    $query->select('id', 'hotel_id', 'user_id', 'rating', 'review_text', 'created_at')
+                        ->latest()
+                        ->with(['user:id,name']);
+                },
+                'user' => function ($query) {
+                    $query->select('id', 'name', 'email')
+                        ->withCount('hotel');
                 }
             ])->loadAvg('reviews', 'rating');
 
             return response()->json([
-                'message' => 'Hotel retrieved succesfully',
+                'message' => 'Hotel retrieved successfully',
                 'data' => $hotel
             ]);
         } catch (ModelNotFoundException) {

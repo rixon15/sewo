@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->boolean('is_main')->default(false);
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->timestamps();
+            $table->index(['hotel_id', 'is_main']);
         });
     }
 

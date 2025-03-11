@@ -66,7 +66,7 @@ export const routes: Routes = [
         component: DashboardHotelDetailsComponent,
       },
     ],
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     resolve: { auth: AuthResolver },
   },
 ];

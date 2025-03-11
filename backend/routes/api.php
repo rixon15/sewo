@@ -37,6 +37,21 @@ Route::get('/health', function () {
     ]);
 });
 
+Route::get('/ping', function () {
+    return response()->json(['timestamp' => now()->toDateTimeString()]);
+});
+
+Route::get('/db-ping', function () {
+    $start = microtime(true);
+    DB::select('SELECT 1');
+    $duration = microtime(true) - $start;
+    
+    return response()->json([
+        'duration_ms' => round($duration * 1000, 2),
+        'timestamp' => now()->toDateTimeString()
+    ]);
+});
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');

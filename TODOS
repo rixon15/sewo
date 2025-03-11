@@ -6,5 +6,4 @@ Implement menu for mobile devices
 Create an upload service on the backend to upload images to cloudinary, modify the user and hotels store function to include the upload service.
 Check the database relations, and modify the controllers according to the needs of the frontend. (This can be done on the fly aswell)
 Implement sorting by geolocations
-Improve querry times in hotelcontroller
-Remove Star rating from the hotels and calculate it using the reviews associated with the hotels
+Fix the Popular/Recommended/Nearest route

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('address');
             $table->string('city');
@@ -28,8 +28,8 @@ return new class extends Migration {
             $table->boolean('parking_area');
             $table->boolean('smoking_area');
             $table->integer('price');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            $table->index(['name', 'city', 'state']);
         });
     }
 
